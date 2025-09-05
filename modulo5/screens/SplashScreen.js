@@ -1,21 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, Animated } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 const SplashScreen = () => {
-  const fadeAnim = new Animated.Value(0);
 
-  React.useEffect(() => {
-    // Animación de fade in
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 2000,
-      useNativeDriver: true,
-    }).start();
-  }, [fadeAnim]);
 
   return (
     <View style={styles.container}>
-      <Animated.View style={[styles.content, { opacity: fadeAnim }]}>
         <View style={styles.logoContainer}>
           <Text style={styles.logo}></Text>
         </View>
@@ -26,7 +16,6 @@ const SplashScreen = () => {
         <View style={styles.loadingContainer}>
           <Text style={styles.loadingText}>Cargando...</Text>
         </View>
-      </Animated.View>
     </View>
   );
 };
